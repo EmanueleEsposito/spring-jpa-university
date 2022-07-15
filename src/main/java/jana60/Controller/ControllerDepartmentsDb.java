@@ -19,7 +19,7 @@ public class ControllerDepartmentsDb {
 
 	@GetMapping
 	public String homepage() {
-		return "homepage";
+		return "home";
 	}
 
 	@GetMapping("/home")
