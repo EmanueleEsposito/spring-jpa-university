@@ -18,6 +18,16 @@ public class ControllerDepartmentsDb {
 	private DepartmentsRepository repo;
 
 	@GetMapping
+	public String homepage() {
+		return "homepage";
+	}
+
+	@GetMapping("/home")
+	public String home() {
+		return "home";
+	}
+
+	@GetMapping("/departments")
 	public String departments(Model model) {
 		List<Departments> departmentsList = (List<Departments>) repo.findAll();
 		model.addAttribute("departmentsList", departmentsList);

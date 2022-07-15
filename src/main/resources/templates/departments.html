@@ -2,14 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<th:block th:replace="fragments :: risorse-head"></th:block>
 	<title>Departments</title>
 </head>
 
 <body>
-	<h1>Nome dei dipartimenti</h1>
-	<ul>
-		<li th:each="d : ${departmentsList}" th:text="${d.getName()}"></li>
-	</ul>
+	<div th:replace="fragments :: navbar('departments')"></div>
+	<div class="container">
+		<h1>Departments</h1>
+		<hr />
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Address</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Website</th>
+					<th>Head Of Department</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="d : ${departmentsList}">
+					<td th:text="${d.name}"></td>
+					<td th:text="${d.address}"></td>
+					<td th:text="${d.phone}"></td>
+					<td th:text="${d.email}"></td>
+					<td th:text="${d.website}"></td>
+					<td th:text="${d.head_of_department}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
+
 </body>
 
 </html>
