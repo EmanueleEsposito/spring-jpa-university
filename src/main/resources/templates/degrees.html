@@ -3,37 +3,38 @@
 
 <head>
 	<th:block th:replace="fragments :: risorse-head"></th:block>
-	<title>Departments</title>
+	<title>Degrees</title>
 </head>
 
 <body>
-	<div th:replace="fragments :: navbar('departments')"></div>
+	<div th:replace="fragments :: navbar('degrees')"></div>
 	<div class="container">
-		<h1 class="text-center text-secondary ">Departments</h1>
+		<h1 class="text-center text-secondary ">Degrees</h1>
 		<hr />
-		<div th:if="${#lists.isEmpty(departmentsList)}">
-			<h2>Nessun Dipartimento trovato</h2>
+		<div th:if="${#lists.isEmpty(degreesList)}">
+			<h2>Nessun degrees trovato</h2>
 		</div>
-		<div th:unless="${#lists.isEmpty(departmentsList)}">
+		<div th:unless="${#lists.isEmpty(degreesList)}">
 			<table class="table">
 				<thead>
 					<tr>
+						<th class="text-primary fs-2">DepartmentName</th>
 						<th class="text-primary fs-2">Name</th>
+						<th class="text-primary fs-2">Level</th>
 						<th class="text-primary fs-2">Address</th>
-						<th class="text-primary fs-2">Phone</th>
 						<th class="text-primary fs-2">Email</th>
 						<th class="text-primary fs-2">Website</th>
-						<th class="text-primary fs-2">Head Of Department</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="d : ${departmentsList}">
+					<tr th:each="d : ${degreesList}">
+						<td th:text="${d.departments.getName()}"></td>
 						<td th:text="${d.name}"></td>
+						<td th:text="${d.level}"></td>
 						<td th:text="${d.address}"></td>
-						<td th:text="${d.phone}"></td>
 						<td th:text="${d.email}"></td>
 						<td th:text="${d.website}"></td>
-						<td th:text="${d.head_of_department}"></td>
+
 					</tr>
 				</tbody>
 			</table>
