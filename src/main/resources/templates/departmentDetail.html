@@ -29,7 +29,7 @@
 				<td th:text="${departments.phone}"></td>
 				<td th:text="${departments.email}"></td>
 				<td th:text="${departments.website}"></td>
-				<td th:text="${departments.headOfDepartment}"></td>
+				<td th:text="${departments.head_of_department}"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -49,7 +49,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="d : ${departments.degree}">
+				<tr th:each="d : ${departments.degrees}">
 					<td th:text="${d.name}"></td>
 					<td th:text="${d.level}"></td>
 					<td th:text="${d.address}"></td>
