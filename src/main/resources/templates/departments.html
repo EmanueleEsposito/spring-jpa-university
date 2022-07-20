@@ -11,34 +11,34 @@
 	<div class="container">
 		<h1 class="text-center text-secondary ">Departments</h1>
 		<hr />
-		<div th:if="${#lists.isEmpty(departmentsList)}">
-			<h2>Nessun Dipartimento trovato</h2>
-		</div>
-		<div th:unless="${#lists.isEmpty(departmentsList)}">
-			<table class="table">
-				<thead>
-					<tr>
-						<th class="text-primary fs-2">Name</th>
-						<th class="text-primary fs-2">Address</th>
-						<th class="text-primary fs-2">Phone</th>
-						<th class="text-primary fs-2">Email</th>
-						<th class="text-primary fs-2">Website</th>
-						<th class="text-primary fs-2">Head Of Department</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="d : ${departmentsList}">
-						<td th:text="${d.name}"></td>
-						<td th:text="${d.address}"></td>
-						<td th:text="${d.phone}"></td>
-						<td th:text="${d.email}"></td>
-						<td th:text="${d.website}"></td>
-						<td th:text="${d.head_of_department}"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+
+		<table class="table" th:if="${departmentsList.size() > 0}">
+			<thead>
+				<tr>
+					<th class="text-primary fs-2">Name</th>
+					<th class="text-primary fs-2">Address</th>
+					<th class="text-primary fs-2">Phone</th>
+					<th class="text-primary fs-2">Email</th>
+					<th class="text-primary fs-2">Website</th>
+					<th class="text-primary fs-2">Head Of Department</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="d : ${departmentsList}">
+					<td><a th:href="@{|/department/${d.id}|}" th:text="${d.name}">Department Detail</td>
+					<td th:text="${d.address}"></td>
+					<td th:text="${d.phone}"></td>
+					<td th:text="${d.email}"></td>
+					<td th:text="${d.website}"></td>
+					<td th:text="${d.head_of_department}"></td>
+
+				</tr>
+			</tbody>
+		</table>
+		<div class="alert alert-info" role="alert" th:unless="${departmentsList.size() > 0}">There are no departments to
+			show</div>
 	</div>
+
 
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

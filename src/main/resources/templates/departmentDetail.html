@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<th:block th:replace="fragments :: risorse-head"></th:block>
+	<title>Department Detail</title>
+</head>
+
+<body>
+	<nav th:replace="fragments :: navbar('departments')"></nav>
+	<div class="container">
+		<h1 class="text-center text-secondary ">Department Detail</h1>
+		<hr />
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="text-primary fs-2">Name</th>
+					<th class="text-primary fs-2">Address</th>
+					<th class="text-primary fs-2">Phone</th>
+					<th class="text-primary fs-2">Email</th>
+					<th class="text-primary fs-2">Website</th>
+					<th class="text-primary fs-2">Head Of Department</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<td th:text="${departments.name}"></td>
+				<td th:text="${departments.address}"></td>
+				<td th:text="${departments.phone}"></td>
+				<td th:text="${departments.email}"></td>
+				<td th:text="${departments.website}"></td>
+				<td th:text="${departments.headOfDepartment}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container">
+		<h2 class="text-center text-secondary mt-5" th:text="'Degrees del department '+ ${departments.name}+ ':'"></h2>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="text-primary fs-2">Name</th>
+					<th class="text-primary fs-2">Level</th>
+					<th class="text-primary fs-2">Address</th>
+					<th class="text-primary fs-2">Email</th>
+					<th class="text-primary fs-2">Website</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="d : ${departments.degree}">
+					<td th:text="${d.name}"></td>
+					<td th:text="${d.level}"></td>
+					<td th:text="${d.address}"></td>
+					<td th:text="${d.email}"></td>
+					<td th:text="${d.website}"></td>
+
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

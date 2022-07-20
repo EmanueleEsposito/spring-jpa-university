@@ -15,7 +15,7 @@
 			<h2>Nessun degrees trovato</h2>
 		</div>
 		<div th:unless="${#lists.isEmpty(degreesList)}">
-			<table class="table">
+			<table class="table ">
 				<thead>
 					<tr>
 						<th class="text-primary fs-2">DepartmentName</th>
@@ -28,7 +28,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="d : ${degreesList}">
-						<td th:text="${d.departments.getName()}"></td>
+						<td th:text="${d.getDepartments.name}"></td>
 						<td th:text="${d.name}"></td>
 						<td th:text="${d.level}"></td>
 						<td th:text="${d.address}"></td>
